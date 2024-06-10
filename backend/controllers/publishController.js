@@ -1,6 +1,4 @@
-const mongoose=require('mongoose');
 const Publish=require('../models/Publish');
-const path=require('path');
 const getAllPublishInfo=async(req,res,next)=>{
     try{
         const foundedPublish=await Publish.find();

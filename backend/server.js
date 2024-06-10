@@ -8,12 +8,14 @@ const corsOptions=require('./config/corsOptions');
 const PORT=3500;
 require('dotenv').config()
 connectDB();
+
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions))
 app.use(express.json())
 app.use(express.urlencoded({extended:false}));
 app.use('/', require('./routes/root'));
 app.use('/publish', require('./routes/publishRoutes'));
+app.use('/user', require('./routes/userRoutes'));
 
 app.use('/', express.static(path.join(__dirname, "public")));
 mongoose.connection.once('open', ()=>{
