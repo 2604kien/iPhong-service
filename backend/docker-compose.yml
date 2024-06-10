@@ -1,0 +1,9 @@
+services:
+  iphong-backend:
+    build: .
+    ports:
+      - 3500:3500
+    environment:
+      - DATABASE_URI=mongodb+srv://nguyenhongkien123tk:zi10SqmmmKJegbs0@cluster0.x7rjkto.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+    volumes:
+      - .:/user/src/app/src
