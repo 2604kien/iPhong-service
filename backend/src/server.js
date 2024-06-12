@@ -16,6 +16,7 @@ app.use(express.urlencoded({extended:false}));
 app.use('/', require('./routes/root'));
 app.use('/publish', require('./routes/publishRoutes'));
 app.use('/user', require('./routes/userRoutes'));
+app.use('/request', require('./routes/requestRoutes'));
 
 app.use('/', express.static(path.join(__dirname, "public")));
 mongoose.connection.once('open', ()=>{
