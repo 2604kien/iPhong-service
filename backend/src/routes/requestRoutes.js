@@ -1,12 +1,12 @@
 const express=require('express');
 const router=express.Router();
 const requestController=require('../controllers/requestController');
-
+const verifyJWT=require('../middleware/verifyJWT');
 router.route('/')
-    .get(requestController.getAllRequestInfo)
+    .get(verifyJWT,requestController.getAllRequestInfo)
     .post(requestController.createNewRequest)
 router.route('/:id')
-    .get(requestController.getOneRequestInfo)
-    .patch(requestController.updateRequestData)
-    .delete(requestController.deleteRequestById)
+    .get(verifyJWT,requestController.getOneRequestInfo)
+    .patch(verifyJWT,requestController.updateRequestData)
+    .delete(verifyJWT,requestController.deleteRequestById)
 module.exports=router

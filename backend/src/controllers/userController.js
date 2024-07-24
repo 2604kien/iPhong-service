@@ -30,6 +30,10 @@ const createNewUser=async(req,res,next)=>{
     if(!username||!password||!fullName){
         return res.json({msg:"All field required"});
     }
+    const foundedUser=await User.findOne({username});
+    if(foundedUser){
+        return res.status(409).json({message:`User ${username} is already created.`});
+    }
     const hashedPassword=await bcrypt.hash(password, 10);
     const UserObject={
         username,

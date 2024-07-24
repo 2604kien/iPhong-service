@@ -3,6 +3,7 @@ const userSchema=new mongoose.Schema({
     username:{
         type:String,
         required:true,
+        unique: true,
     },
     password:{
         type:String,
@@ -12,10 +13,6 @@ const userSchema=new mongoose.Schema({
         type:String,
         required:true
     },
-    roles:[{
-        type:String,
-        default:"Member"
-    }],
     refreshToken:{
         type: String,
     }
